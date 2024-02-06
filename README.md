@@ -12,11 +12,11 @@ If you're using 433MHz door/window/smoke detector sensors and want to receive th
 
 ### Materials:
 
-Boards: 
-- Controllers: Adafruit Feather RF96 M0
-  - This can be swapped for an esp board with an RF96 chip but the pins numbers may differ. This ARM chip doesn't have as large of a library compared to the ESP boards.
-- 433MHz: RXB6 Receiver
-  - Other receivers have terrible sensitivity or are packet-based. Do not use them.
+- Boards: 
+  - Controllers: Adafruit Feather RF96 M0
+    - This can be swapped for an esp board with an RF96 chip but the pins numbers may differ. This ARM chip doesn't have as large of a library compared to the ESP boards.
+  - 433MHz: RXB6 Receiver
+    - Other receivers have terrible sensitivity or are packet-based. Do not use them.
 - Sensors:
   - Generic 433MHz sensor supporting 1527
   - Generic reed switch(optional)
