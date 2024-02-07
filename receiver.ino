@@ -1,17 +1,17 @@
 #include <RH_RF95.h>
 
-#define RF95_CS      8   // Chip select pin for RF95 (RF96)
-#define RF95_RST     4   // Reset pin for RF95 (RF96)
-#define RF95_INT     3   // Interrupt pin for RF95 (RF96)
+#define RF95_CS      8   // Chip select pin for RF96
+#define RF95_RST     4   // Reset pin for RF96
+#define RF95_INT     3   // Interrupt pin for RF96
 #define BUZZER_PIN   10  // Buzzer pin
-#define LED_PIN      13  // LED pin (most Arduino boards have a built-in LED on pin 13)
+#define LED_PIN      13
 
-// Array of specific codes to trigger the standard beep
-const long triggerCodes[] = {10357363, 10749043, 10000001, 10000002}; // Add your standard codes here
+// Door codes
+const long triggerCodes[] = {10000001, 10000002, 00000000, 00000001, 00000002, 00000003}; // Add your standard codes here
 const int numTriggerCodes = sizeof(triggerCodes) / sizeof(triggerCodes[0]);
 
-// Array of codes to trigger the smoke detector alert
-const long smokeDetectorCodes[] = {3273526,3208758}; // Replace with actual smoke detector codes
+// Smoke detector codes
+const long smokeDetectorCodes[] = {20000000, 20000002}; // Replace with actual smoke detector codes
 const int numSmokeDetectorCodes = sizeof(smokeDetectorCodes) / sizeof(smokeDetectorCodes[0]);
 
 RH_RF95 rf95(RF95_CS, RF95_INT);
@@ -19,8 +19,8 @@ RH_RF95 rf95(RF95_CS, RF95_INT);
 void setup() {
     pinMode(RF95_RST, OUTPUT);
     digitalWrite(RF95_RST, HIGH);
-    pinMode(BUZZER_PIN, OUTPUT);  // Set buzzer pin as output
-    pinMode(LED_PIN, OUTPUT);     // Set LED pin as output
+    pinMode(BUZZER_PIN, OUTPUT);
+    pinMode(LED_PIN, OUTPUT); 
 
     if (!rf95.init()) {
         // If init fails, blink LED rapidly
@@ -84,6 +84,7 @@ bool processReceivedCode(long code) {
     return false;
 }
 
+// Change the timings and count to your liking
 void beep(int numOfBeeps) {
     for (int i = 0; i < numOfBeeps; i++) {
         digitalWrite(BUZZER_PIN, HIGH);

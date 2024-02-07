@@ -14,9 +14,9 @@
 RH_RF95 rf95(RF95_CS, RF95_INT);
 RCSwitch rcSwitch = RCSwitch();
 
-unsigned long lastReceivedTime = 0;  // Variable to store the last received time for debounce
-long lastReceivedCode = -1;          // Variable to store the last received code
-const unsigned long debounceTime = 3000;  // 3 seconds debounce time
+unsigned long lastReceivedTime = 0;  // Last received time for debounce
+long lastReceivedCode = -1;          // Last received code for debounce
+const unsigned long debounceTime = 3000;  
 bool PIN1_RESET = false;
 bool PIN2_RESET = false;
     
